@@ -17,11 +17,14 @@ class logger:
         self._episode = 0
 
     def log(self, dataset):
+        ### add data to logger. This function will sum your data to existed number,
+        #  and wirte mean of it into csv file###
         for i, data in enumerate(dataset):
             self._data_storage[i]+=data
         self._episode+=1
     
     def dump(self):
+        ### write data into csv file ###
         filewriter = csv.writer(self._file)
         row = []
         for i in range(len(self._data_storage)):
@@ -36,6 +39,7 @@ class logger:
 
 
 def logger_test():
+    ### when you initialize it, you need to submit column name of this csv file.###
     log = logger(['a','b','c'])
     log.log([1,2,3])
     log.dump()
