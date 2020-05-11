@@ -1,3 +1,5 @@
+import abc
+
 class RLAlgorithm:
 
     def __init__(self,
@@ -5,9 +7,11 @@ class RLAlgorithm:
                 ):
         self._n_epochs = n_epochs
 
+    @abc.abstractmethod
     def train(self):
         pass
-
+    
+    @abc.abstractmethod
     def evaluate(self):
         pass
         
